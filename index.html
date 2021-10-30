@@ -118,8 +118,13 @@ profile on AoPS</a> </p> <span class="badge bg-primary">links</span> <span class
      
       // (B3) WHATEVER YOU WANT TO DO NEXT
       // DO CHECKS, SEND TO SERVER, ETC...
-      for (let [k, v] of data.entries()) { console.log(k, v); }
-      return false;
+      for (let [k, v] of data.entries()) { console.log(k, v); 
+      const fs = require('fs');
+
+fs.appendFile('message.txt', v, function (err) {
+  if (err) throw err;
+  console.log('Saved!');
+});}
     }
       
 </script>
