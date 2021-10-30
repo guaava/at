@@ -89,13 +89,38 @@ profile on AoPS</a> </p> <span class="badge bg-primary">links</span> <span class
 <p style="margin:10px;">Write a message here. It will be "posted" on here, like a sticky note. The most recent message will go on the top.</p>
     
 
-<form onsubmit="return setAction(this)">
+<form id="user_form" onsubmit="return doForm()">
    <label for="exampleInputEmail1" class="form-label mt-4">Name</label>
       <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" style="width: 200px;">
  <label for="exampleTextarea" class="form-label mt-4">Write your message here...</label>
       <textarea class="form-control" id="exampleTextarea" id="message" style="width: 500px;" rows="3" max=1000></textarea><br/>
   <button type="submit" class="btn btn-primary" style="background-color:gray;">Submit</button>
 </form></center>
-    <script></script>
+    <script>
+      function doForm () {
+      // (B1) FORM DATA OBJECT
+      var data = new FormData();
+      
+      // (B2) APPEND FIELDS
+      var all = document.querySelectorAll("#user_form input, #user_form textarea");
+      for (let field of all) {
+        // EXCLUDE SUBMIT + BUTTONS
+        if (field.type != "submit" && field.type != "button") { 
+          // CHECKBOX + RADIO - MUST BE CHECKED
+          if (field.type=="radio" || field.type=="checkbox") {
+            if (field.checked) { data.append(field.name, field.value); }
+          }
+          // OTHER FIELDS
+          else { data.append(field.name, field.value); }
+        }
+      }
+     
+      // (B3) WHATEVER YOU WANT TO DO NEXT
+      // DO CHECKS, SEND TO SERVER, ETC...
+      for (let [k, v] of data.entries()) { console.log(k, v); }
+      return false;
+    }
+      
+</script>
 </body>
 </html>
