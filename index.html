@@ -99,32 +99,32 @@ profile on AoPS</a> </p> <span class="badge bg-primary">links</span> <span class
   <button type="submit" class="btn btn-primary" style="background-color:gray;">Submit</button>
 </form></center>
     <script>
-      window.location.replace("https://ameyatanikella-3.ameya.repl.co/");
-      console.log('hello');
-      function doForm () {
-      // (B1) FORM DATA OBJECT
-      var data = new FormData();
+      // window.location.replace("https://ameyatanikella-3.ameya.repl.co/");
+      // console.log('hello');
+      // function doForm () {
+      // // (B1) FORM DATA OBJECT
+      // var data = new FormData();
       
-      // (B2) APPEND FIELDS
-      var all = document.querySelectorAll("#user_form input, #user_form textarea");
-      for (let field of all) {
-        // EXCLUDE SUBMIT + BUTTONS
-        if (field.type != "submit" && field.type != "button") { 
-          // CHECKBOX + RADIO - MUST BE CHECKED
-          if (field.type=="radio" || field.type=="checkbox") {
-            if (field.checked) { data.append(field.name, field.value); }
-          }
+      // // (B2) APPEND FIELDS
+      // var all = document.querySelectorAll("#user_form input, #user_form textarea");
+      // for (let field of all) {
+      //   // EXCLUDE SUBMIT + BUTTONS
+      //   if (field.type != "submit" && field.type != "button") { 
+      //     // CHECKBOX + RADIO - MUST BE CHECKED
+      //     if (field.type=="radio" || field.type=="checkbox") {
+      //       if (field.checked) { data.append(field.name, field.value); }
+      //     }
           // OTHER FIELDS
-          else { data.append(field.name, field.value); }
-        }
-      }
+    //       else { data.append(field.name, field.value); }
+    //     }
+    //   }
      
-      // (B3) WHATEVER YOU WANT TO DO NEXT
-      // DO CHECKS, SEND TO SERVER, ETC...
-      for (let [k, v] of data.entries()) { console.log(k, v); }
-      return false;
+    //   // (B3) WHATEVER YOU WANT TO DO NEXT
+    //   // DO CHECKS, SEND TO SERVER, ETC...
+    //   for (let [k, v] of data.entries()) { console.log(k, v); }
+    //   return false;
        
-    }
+    // }
 
       
       
